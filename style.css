@@ -170,7 +170,6 @@ p {
     margin: 0px;
     margin-bottom: 10px;
     color: hsl(0, 100%, 66%);
-    visibility: hidden;
 }
 
 .error-messages {
@@ -181,11 +180,6 @@ p {
 .error-messages p {
     margin-right: 5%;
 }
-
-.visibility {
-    visibility: visible;
-}
-
 
 
 /* media queries */

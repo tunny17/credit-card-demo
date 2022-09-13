@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="http://code.jquery.com/jquery.js"></script>
     <link rel="stylesheet" href="/style.css">
     <title>Document</title>
 </head>
@@ -31,16 +32,16 @@
         </section>
     
         <section    class="right">
-            <form  name="thisForm" id="theForm" onsubmit="return(validate())">
+            <form  name="thisForm" id="thisForm"  action="">
                 <label for=""> cardholder name</label>
                 <br>
                 <input type="text" name="name" id="holderName"    class="name"  placeholder="e.g. Jane Appleseed">
-                <p  class="name-p"  id="nameP">Can't be blank</p>
+                <p  class="name-p"  id="nameP"  role="alert"  aria-atomic="true"></p>
 
                 <label for=""> card number</label>
                 <br>
                 <input type="text" id="number"  class="number"   placeholder="e.g. 1234 5678 9123 0000">
-                <p  class="number-p"    id="cardNumber">Wrong format, numbers only</p>
+                <p  class="number-p"    id="cardNumber"></p>
                 
                 <div>
                     <label for="">exp. date (mm/yy)</label> <label for=""   class="cvc-label">cvc</label>
@@ -71,13 +72,13 @@
                     </div>
 
                     <div    class="error-messages">
-                        <p  class="day-p"   id="monthP">Can't be blank</p>
-                        <p  class="year-p"  id="yearP">Can't be blank</p>
-                        <p  class="cvc-p"   id="cvcP">Can't be blank</p>
+                        <p  class="day-p"   id="monthP"></p>
+                        <p  class="year-p"  id="yearP"></p>
+                        <p  class="cvc-p"   id="cvcP"></p>
                     </div>
                 </div>
 
-                <button id="button">Confirm</button>
+                <button id="button" type="submit">Confirm</button>
 
             </form>
         </section>
