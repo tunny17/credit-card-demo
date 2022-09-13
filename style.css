@@ -1,0 +1,291 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap');
+
+body {
+    margin: 0px;
+    padding: 0px;
+    overflow: hidden;
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+.body {
+    display: flex;
+}
+
+.left {
+    height: 100vh;
+    flex-grow: 1;
+    background-image: url(/img/bg-main-desktop.png);
+}
+
+.right {
+    background-color: hsl(0, 0%, 100%);
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* styling of the left side of the page */
+
+.front {
+    z-index: 2;
+    position: absolute;
+    margin-left: 13%;
+    margin-top: 7%;
+    box-shadow: -2px -1px 11px -6px rgba(0, 0, 0, 0.5);
+}
+
+.back {
+    z-index: 2;
+    position: absolute;
+    margin-top: 26%;
+    margin-left: 20%;
+    box-shadow: -2px -1px 11px -6px rgba(0, 0, 0, 0.5);
+}
+
+.cardLogo,
+.front-number,
+.front-div,
+.back-cvc
+ {
+    z-index: 2;
+    position: absolute;
+    margin-left: 15%;
+    margin-top: 8.5%;
+}
+
+.front-number {
+    margin-left: 15%;
+    margin-top: 15.5%;
+    color: white;
+    font-weight: lighter;
+    letter-spacing: 2px;
+    font-size: 30px;
+}
+
+.front-div {
+    display: flex;
+    width: 100%;
+    margin-top: 289px;
+    color: white;
+    font-size: 13px;
+    letter-spacing: 2px;
+}
+
+.front-div p {
+    color: white;
+    visibility: visible;
+    font-weight: 100;
+    font-size: 13px;
+    letter-spacing: 2px;
+    margin-top: 30px;
+}
+
+.front-name {
+    margin-right: 197px;
+}
+
+.back-cvc {
+    margin-top: 33%;
+    margin-left: 43%;
+    color: white;
+    letter-spacing: 2px;
+}
+
+
+
+/* styling of the right side of the page */
+
+form {
+    width: 40%;
+    margin-left: 15%;
+}
+
+label {
+    text-transform: uppercase;
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    color: hsl(278, 68%, 11%);
+}
+
+input {
+    margin-top: 10px;
+    margin-bottom: 7px;
+    padding: 10px;
+    border-radius: 7px;
+    border: 1px solid hsl(270, 3%, 87%);
+}
+
+.name,
+.number
+ {
+    padding-right: 35%;
+    padding-left: 3%;
+}
+
+input::placeholder {
+    font-family: 'Space Grotesk', sans-serif;
+    color: hsl(270, 3%, 87%);
+}
+
+.month,
+.year
+ {
+    width: 10%;
+    padding-right: 15px;
+    margin-right: 5px;
+}
+
+.cvc {
+    width: 33%;
+    margin-left: 7px;
+}
+
+.cvc-label {
+    margin-left: 9%;
+}
+
+button {
+    padding: 15px;
+    padding-left: 30%;
+    padding-right: 35%;
+    margin-top: 7%;
+    font-family: 'Space Grotesk', sans-serif;
+    color: white;
+    background-color: hsl(278, 68%, 11%);
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+input:focus {
+    border: hsl(278, 94%, 30%);
+    color: hsl(278, 94%, 30%);
+}
+
+p {
+    font-size: 9px;
+    font-weight: bold;
+    margin: 0px;
+    margin-bottom: 10px;
+    color: hsl(0, 100%, 66%);
+    visibility: hidden;
+}
+
+.error-messages {
+    display: flex;
+    margin-left: 0px;
+}
+
+.error-messages p {
+    margin-right: 5%;
+}
+
+.visibility {
+    visibility: visible;
+}
+
+
+
+/* media queries */
+
+@media (max-width: 376px) {
+    body {
+        margin: 0px;
+    }
+    
+    .body {
+        flex-direction: column;
+    }
+
+    .left {
+        flex-grow: 0;
+        height: 35vh;
+        background-image: url(/img/bg-main-mobile.png);
+    }
+
+    .front {
+        z-index: 3;
+        width: 74%;
+        margin-left: 20px;
+        margin-top: 30%;
+    }
+
+    .back {
+        width: 77%;
+        margin-top: 6%;
+        margin-left: 70px;
+    }
+
+    .cardLogo,
+    .front-number,
+    .front-div,
+    .back-cvc
+    {
+        z-index: 3;
+        zoom: 65%;
+    }
+
+    .cardLogo {
+        zoom: 60%;
+        margin-top: 34%;
+        margin-left: 60px;
+    }
+
+    .front-number {
+        zoom: 58%;
+        letter-spacing: 3px;
+        margin-top: 53%;
+        margin-left: 67px;
+    }
+
+    .front-div {
+        margin-top: 62%;
+        margin-left: 60px;
+    }
+
+    .front-name {
+        margin-right: 180px;
+    }
+
+    .back-cvc {
+        margin-top: 0px;
+        margin-top: 25%;
+        margin-left: 455px;
+    }
+
+
+
+
+
+    form {
+        zoom: 90%;
+        width: 100%;
+        margin: 10px;
+        margin-top: 20%;
+        margin-left: 20px;
+        margin-right: 18px;
+    }
+
+    input {
+        width: 61%;
+        font-size: 20px;
+    }
+
+    input::placeholder {
+        color: hsl(280, 9%, 68%);
+        font-size: 16px;
+    }
+
+    .cvc {
+        width: 52%;
+    }
+
+
+    button {
+        padding: 17px;
+        padding-left: 42%;
+        padding-right: 43%;
+    }
+}
