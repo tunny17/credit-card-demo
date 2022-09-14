@@ -1,285 +1,642 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap');
-
-body {
-    margin: 0px;
-    padding: 0px;
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'space grotesk';
+}
+.container{
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
     overflow: hidden;
-    font-family: 'Space Grotesk', sans-serif;
 }
-
-.body {
-    display: flex;
+:root{
+    --primary: #21092f ;
+    font-size: 12px;
+    --error-red: hsl(0, 100%, 66%);
 }
-
-.left {
-    height: 100vh;
-    flex-grow: 1;
-    background-image: url(/img/bg-main-desktop.png);
-}
-
-.right {
-    background-color: hsl(0, 0%, 100%);
-    flex-grow: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-
-/* styling of the left side of the page */
-
-.front {
-    z-index: 2;
-    position: absolute;
-    margin-left: 13%;
-    margin-top: 7%;
-    box-shadow: -2px -1px 11px -6px rgba(0, 0, 0, 0.5);
-}
-
-.back {
-    z-index: 2;
-    position: absolute;
-    margin-top: 26%;
-    margin-left: 20%;
-    box-shadow: -2px -1px 11px -6px rgba(0, 0, 0, 0.5);
-}
-
-.cardLogo,
-.front-number,
-.front-div,
-.back-cvc
- {
-    z-index: 2;
-    position: absolute;
-    margin-left: 15%;
-    margin-top: 8.5%;
-}
-
-.front-number {
-    margin-left: 15%;
-    margin-top: 15.5%;
-    color: white;
-    font-weight: lighter;
-    letter-spacing: 2px;
-    font-size: 30px;
-}
-
-.front-div {
-    display: flex;
+.cards{
+    height: 230px;
     width: 100%;
-    margin-top: 289px;
-    color: white;
-    font-size: 13px;
-    letter-spacing: 2px;
+    background:url(https://iili.io/rGIZXe.png) no-repeat;
+    background-size: cover;
+    position: relative;
+    display: grid;
+    place-content: center;
+    margin-bottom: 4.5em;
 }
-
-.front-div p {
-    color: white;
-    visibility: visible;
-    font-weight: 100;
-    font-size: 13px;
-    letter-spacing: 2px;
-    margin-top: 30px;
-}
-
-.front-name {
-    margin-right: 197px;
-}
-
-.back-cvc {
-    margin-top: 33%;
-    margin-left: 43%;
-    color: white;
-    letter-spacing: 2px;
-}
-
-
-
-/* styling of the right side of the page */
-
-form {
-    width: 40%;
-    margin-left: 15%;
-}
-
-label {
-    text-transform: uppercase;
-    font-size: 10px;
-    font-weight: bold;
-    letter-spacing: 2px;
-    color: hsl(278, 68%, 11%);
-}
-
-input {
-    margin-top: 10px;
-    margin-bottom: 7px;
-    padding: 10px;
-    border-radius: 7px;
-    border: 1px solid hsl(270, 3%, 87%);
-}
-
-.name,
-.number
- {
-    padding-right: 35%;
-    padding-left: 3%;
-}
-
-input::placeholder {
-    font-family: 'Space Grotesk', sans-serif;
-    color: hsl(270, 3%, 87%);
-}
-
-.month,
-.year
- {
-    width: 10%;
-    padding-right: 15px;
-    margin-right: 5px;
-}
-
-.cvc {
-    width: 33%;
-    margin-left: 7px;
-}
-
-.cvc-label {
-    margin-left: 9%;
-}
-
-button {
-    padding: 15px;
-    padding-left: 30%;
-    padding-right: 35%;
-    margin-top: 7%;
-    font-family: 'Space Grotesk', sans-serif;
-    color: white;
-    background-color: hsl(278, 68%, 11%);
-    border-radius: 7px;
-    cursor: pointer;
-}
-
-input:focus {
-    border: hsl(278, 94%, 30%);
-    color: hsl(278, 94%, 30%);
-}
-
-p {
-    font-size: 9px;
-    font-weight: bold;
-    margin: 0px;
-    margin-bottom: 10px;
-    color: hsl(0, 100%, 66%);
-}
-
-.error-messages {
-    display: flex;
-    margin-left: 0px;
-}
-
-.error-messages p {
-    margin-right: 5%;
-}
-
-
-/* media queries */
-
-@media (max-width: 376px) {
-    body {
-        margin: 0px;
-    }
+.credit{
+    width: 77vw;
+    max-width: 300px;
+    height:9em;
+    border-radius:.4em;
+    padding: 7%;
+    letter-spacing: .1em;
+    color: #fff;
     
-    .body {
-        flex-direction: column;
+}
+/* back of card design */
+.card-back{
+    background-color: #eeeded;
+    position: relative;
+    display:flex;
+    transform: translateX(10%) translateY(45%);
+}
+.card-back::before{
+    content: "";
+    width: 100%;
+    height: 2.1em;
+    background-color: rgb(59, 59, 59);
+    position: absolute;
+    top: 1.05em;
+    left: 0;
+}
+.display-cvc{
+width: 94%;
+height: 1.8em;
+background-color: rgb(163, 163, 163);
+margin: auto;
+border-radius: 5px;
+padding: 5px;
+display: flex;
+align-items: center;
+justify-content: right;
+}
+.display-cvc p{
+    font-size: .6em;
+}
+.card-front{
+    background-image:url(https://iili.io/r16lYg.png) ;
+    background-size: cover;
+    transform: translateX(-10%) translateY(5%);
+}
+.card-front::before{
+    content: "";
+    background-color: #fff;
+    position: absolute;
+    width: 1.7em;
+    height: 1.7em;
+    border-radius: 50%;
+    top:15%;
+}
+.card-front::after{
+    content: "";
+    border: 1.5px solid #fff;
+    position: absolute;
+    width: .6em;
+    height: .6em;
+    border-radius: 50%;
+    top:20%;
+    left: 21%;
+}
+.card-code{
+    font-size: 10px;
+    width: fit-content;
+    transform: translateY(3.5em);
+    font-weight:500;
+}
+.name-mt-yr{
+    display: flex;
+    justify-content: space-between;
+    font-size: .5em;
+    transform: translateY(8.5em);
+    text-transform: uppercase;
+}
+.mt-yr{
+    display: flex;
+    justify-content: space-around;
+}
+.card-details{
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    position: relative;
+}
+.form, .success{
+    width: 100%;
+    max-width: 550px;
+    padding:5%;
+}
+.card-name,
+.card-number,
+.month-label,
+.year-label,
+.cvc-label 
+{
+    font-size: 10px;
+}
+
+input{
+    height: 45px;
+    padding: 0px;
+    border-radius: 6px;
+    border: 1px solid #e0e0e07a;
+    font-size: .9em;
+    font-weight: 800;
+    cursor: pointer;
+    position: relative;
+    margin-bottom: 10px;
+}
+input::placeholder{
+    color: #7070707a;
+    font-size: 15px;
+    letter-spacing: 1px;
+    padding-bottom: 10px;
+}
+.input:hover{
+  border: 1px solid var(--primary);
+}
+.btn{
+    width: 100%;
+    background-color:var(--primary);
+    margin-top: 10px;
+    color: #fff;
+    font-size: 16px;
+    border-radius: 10px;
+    padding:15px;
+    border: none;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+.form-group{
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    margin-bottom: 10px;
+    position: relative;
+    padding-bottom: 10px;
+}
+.row{
+    display: flex;
+    gap: 5px;
+}
+.form-group-3{
+    display: flex;
+    gap: 5px;
+    width: 75%;
+    max-width: 270px;
+    height: fit-content;
+    position: relative;
+}
+.form-group-3 .form-group{
+    margin-bottom: 0;
+}
+.exp-month,.exp-year{
+    width: 100%;
+}
+.cvc{
+    width: 100%;
+    margin-left: 2px;
+}
+.alert{
+    color:var(--error-red);
+    font-size: 10px;
+    width: 10%;
+    font-weight: 600;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+.success{
+    align-items: center;
+    justify-items: center;
+    position: absolute;
+    top: 0;
+    background-color:#fff;
+    height: 100%;
+    display: none; 
+}
+.show{
+    display: grid;
+}
+.invalid-input{
+    border: 1px solid var(--error-red);
+}
+.success h1,h3{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    letter-spacing: 1px;
+    font-size: 15px;
+}
+.success h3{
+    font-size: 10px;
+    color: #807f7f;
+}
+.success .check{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: linear-gradient(rgb(59, 3, 189),rgb(102, 58, 102)) ;
+    display: grid;
+    place-content: center;
+}
+.success .check-content{
+    width: 5px;
+    height: 12px;
+    border-left: 2px solid #fff;
+    border-bottom: 2px solid #fff;
+    transform: rotate(-40deg) ;
+    margin-bottom: 10px;
+}
+@media only screen and (min-width:360px){
+    :root{
+        font-size: 18px;
+    }
+    .card-code{
+        font-size: 10px;
+}
+}
+
+@media only screen and (min-width:1024px){
+    :root{
+        font-size: 18px;
+    }
+    .container{
+        flex-direction: row;
+        height: 100vh;
+    }
+    .cards{
+        height: 100vh;
+        width: 30%;
+        background-image: url(https://iili.io/63kZ0B.png);
+    }
+    .credit{
+        margin-left: 45%;
+        max-width:20em ;
+        height: 11em;
+        border-radius: 10px;
+    }
+    .card-back{
+        transform: translateY(105%) translateX(10%);
+    }
+    .card-back::before{
+        height: 2.4em;
     }
 
-    .left {
-        flex-grow: 0;
-        height: 35vh;
-        background-image: url(/img/bg-main-mobile.png);
+    .card-front{
+        transform: translateY(-105%) translateX(-15%);
+    }
+    .card-front::after{
+        left: 3.9em;
+    }
+    .card-code{
+        font-size: 10px;
+        width: fit-content;
+    }
+    .name-mt-yr{
+        font-size: .7em;
+
+    }
+    .card-details{
+        width: 70%;
+        display: grid;
+        align-items: center;
+        justify-items: center;
+    }
+    .form{
+        width:50%;
+        min-width: 350px;
+        margin-left: 15%;
+        max-width: 490px;
+        padding: 3%;
+    }
+    input{
+        padding: .5em;
+    }
+   .success{
+        width: 10%;
+        min-width: 350px;
+        padding: 20% 0;
+        max-width: 200px;
+        margin-left: 15%;
+    }
+}
+@media only screen and (min-width:1440px) {
+    :root{
+        font-size: 24px;
+    }
+   
+    .card-code{
+        font-size: 1.2em;
+    }
+}
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'space grotesk';
+}
+.container{
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+:root{
+    --primary: #21092f ;
+    font-size: 12px;
+    --error-red: hsl(0, 100%, 66%);
+}
+.cards{
+    height: 230px;
+    width: 100%;
+    background:url(https://iili.io/rGIZXe.png) no-repeat;
+    background-size: cover;
+    position: relative;
+    display: grid;
+    place-content: center;
+    margin-bottom: 4.5em;
+}
+.credit{
+    width: 77vw;
+    max-width: 300px;
+    height:9em;
+    border-radius:.4em;
+    padding: 7%;
+    letter-spacing: .1em;
+    color: #fff;
+    
+}
+/* back of card design */
+.card-back{
+    background-color: #eeeded;
+    position: relative;
+    display:flex;
+    transform: translateX(10%) translateY(45%);
+}
+.card-back::before{
+    content: "";
+    width: 100%;
+    height: 2.1em;
+    background-color: rgb(59, 59, 59);
+    position: absolute;
+    top: 1.05em;
+    left: 0;
+}
+.display-cvc{
+width: 94%;
+height: 1.8em;
+background-color: rgb(163, 163, 163);
+margin: auto;
+border-radius: 5px;
+padding: 5px;
+display: flex;
+align-items: center;
+justify-content: right;
+}
+.display-cvc p{
+    font-size: .6em;
+}
+.card-front{
+    background-image:url(https://iili.io/r16lYg.png) ;
+    background-size: cover;
+    transform: translateX(-10%) translateY(5%);
+}
+.card-front::before{
+    content: "";
+    background-color: #fff;
+    position: absolute;
+    width: 1.7em;
+    height: 1.7em;
+    border-radius: 50%;
+    top:15%;
+}
+.card-front::after{
+    content: "";
+    border: 1.5px solid #fff;
+    position: absolute;
+    width: .6em;
+    height: .6em;
+    border-radius: 50%;
+    top:20%;
+    left: 21%;
+}
+.card-code{
+    font-size: 1em;
+    width: fit-content;
+    transform: translateY(3.5em);
+    font-weight:500;
+}
+.name-mt-yr{
+    display: flex;
+    justify-content: space-between;
+    font-size: .5em;
+    transform: translateY(8.5em);
+    text-transform: uppercase;
+}
+.mt-yr{
+    display: flex;
+    justify-content: space-around;
+}
+.card-details{
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    position: relative;
+}
+.form, .success{
+    width: 100%;
+    max-width: 550px;
+    padding:5%;
+}
+label{
+    font-size: .7em;
+    font-weight: bolder;
+    color: hsl(280, 3%, 19%);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+input{
+    padding: 0px;
+    border-radius: 6px;
+    border: 1px solid #e0e0e07a;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    position: relative;
+    margin-bottom: 10px;
+}
+input::placeholder{
+    color: #7070707a;
+    font-size: 13px;
+    margin-bottom: 10px;
+}
+.input:hover{
+  border: 1px solid var(--primary);
+}
+.btn{
+    width: 100%;
+    background-color:var(--primary);
+    margin-top: 10px;
+    color: #fff;
+    font-size: 16px;
+    border-radius: 10px;
+    padding:15px;
+    border: none;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+.form-group{
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    margin-bottom: 10px;
+    position: relative;
+    padding-bottom: 10px;
+}
+.row{
+    display: flex;
+    gap: 5px;
+}
+.form-group-3{
+    display: flex;
+    gap: 5px;
+    width: 75%;
+    max-width: 270px;
+    height: fit-content;
+    position: relative;
+}
+.form-group-3 .form-group{
+    margin-bottom: 0;
+}
+.exp-month,.exp-year{
+    width: 100%;
+}
+.cvc{
+    width: 100%;
+    margin-left: 2px;
+}
+.alert{
+    color:var(--error-red);
+    font-size: 10px;
+    width: 100%;
+    font-weight: 700;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+.success{
+    align-items: center;
+    justify-items: center;
+    position: absolute;
+    top: 0;
+    background-color:#fff;
+    height: 100%;
+    display: none; 
+}
+.show{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.invalid-input{
+    border: 1px solid var(--error-red);
+}
+.success h1,h3{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    letter-spacing: 1px;
+}
+.success h3{
+    font-size: 12px;
+    color: #807f7f;
+}
+.success .check{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: linear-gradient(rgb(59, 3, 189),rgb(102, 58, 102)) ;
+    display: grid;
+    place-content: center;
+}
+.success .check-content{
+    width: 25px;
+    height: 12px;
+    border-left: 2px solid #fff;
+    border-bottom: 2px solid #fff;
+    transform: rotate(-40deg) ;
+    margin-bottom: 10px;
+}
+@media only screen and (min-width:360px){
+    :root{
+        font-size: 18px;
+    }
+    .card-code{
+        font-size: 1em;
+}
+}
+
+@media only screen and (min-width:1024px){
+    :root{
+        font-size: 18px;
+    }
+    .container{
+        flex-direction: row;
+        height: 100vh;
+    }
+    .cards{
+        height: 100vh;
+        width: 30%;
+        background-image: url(https://iili.io/63kZ0B.png);
+    }
+    .credit{
+        margin-left: 45%;
+        max-width:20em ;
+        height: 11em;
+        border-radius: 10px;
+    }
+    .card-back{
+        transform: translateY(105%) translateX(10%);
+    }
+    .card-back::before{
+        height: 2.4em;
     }
 
-    .front {
-        z-index: 3;
-        width: 74%;
-        margin-left: 20px;
-        margin-top: 30%;
+    .card-front{
+        transform: translateY(-105%) translateX(-15%);
     }
-
-    .back {
-        width: 77%;
-        margin-top: 6%;
-        margin-left: 70px;
+    .card-front::after{
+        left: 3.9em;
     }
-
-    .cardLogo,
-    .front-number,
-    .front-div,
-    .back-cvc
-    {
-        z-index: 3;
-        zoom: 65%;
+    .card-code{
+        font-size: 1.3em;
+        width: fit-content;
     }
+    .name-mt-yr{
+        font-size: .7em;
 
-    .cardLogo {
-        zoom: 60%;
-        margin-top: 34%;
-        margin-left: 60px;
     }
-
-    .front-number {
-        zoom: 58%;
-        letter-spacing: 3px;
-        margin-top: 53%;
-        margin-left: 67px;
+    .card-details{
+        width: 70%;
+        display: grid;
+        align-items: center;
+        justify-items: center;
     }
-
-    .front-div {
-        margin-top: 62%;
-        margin-left: 60px;
+    .form{
+        width:50%;
+        min-width: 350px;
+        margin-left: 15%;
+        max-width: 490px;
+        padding: 3%;
     }
-
-    .front-name {
-        margin-right: 180px;
+    input{
+        padding: .5em;
     }
-
-    .back-cvc {
-        margin-top: 0px;
-        margin-top: 25%;
-        margin-left: 455px;
+   .success{
+    width: 50%;
+    min-width: 350px;
+    padding: 20% 0;
+   max-width: 500px;
+   margin-left: 15%;
+   }
+}
+@media only screen and (min-width:1440px) {
+    :root{
+        font-size: 24px;
     }
-
-
-
-
-
-    form {
-        zoom: 90%;
-        width: 100%;
-        margin: 10px;
-        margin-top: 20%;
-        margin-left: 20px;
-        margin-right: 18px;
-    }
-
-    input {
-        width: 61%;
-        font-size: 20px;
-    }
-
-    input::placeholder {
-        color: hsl(280, 9%, 68%);
-        font-size: 16px;
-    }
-
-    .cvc {
-        width: 52%;
-    }
-
-
-    button {
-        padding: 17px;
-        padding-left: 42%;
-        padding-right: 43%;
+   
+    .card-code{
+        font-size: 1.2em;
     }
 }
